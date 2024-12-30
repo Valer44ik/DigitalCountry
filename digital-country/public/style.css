@@ -1,0 +1,240 @@
+/* Apply a full-page background */
+body, html {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; /* Ensure the page takes up at least full viewport height */
+    font-family: Arial, sans-serif;
+}
+
+/* Animated gradient background */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Set the gradient as a background and animate it */
+body {
+    background: linear-gradient(45deg, #ff6ec7, #f7e2f1, #8e44ad, #3498db);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+}
+
+/* Center the content */
+.content {
+    text-align: center;
+    padding: 100px 20px;
+    color: white;
+}
+
+/* Style the header */
+header {
+    position: relative;
+    height: 300px; /* Adjust as needed */
+    background-image: url('images/nature.png'); /* Replace with your image URL */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0% 50%;
+    display: flex; /* Enable Flexbox */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
+    text-align: center; /* Center-align text */
+    color: white; /* Text color */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Text shadow for readability */
+}
+
+header h1 {
+    font-size: 50px;
+    font-weight: 600;
+    color: #fdfdfe;
+    text-shadow: 0px 0px 5px #b393d3, 0px 0px 10px #b393d3, 0px 0px 10px #b393d3,
+      0px 0px 20px #b393d3;
+  }
+
+/* Main container for the textbox */
+.textbox-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    text-align: center;
+    position: relative;
+}
+
+/* Style for the textbox label */
+.textbox-label {
+    font-size: 16px;
+    color: #333;
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: left;
+}
+
+/* Style for the textbox input */
+.textbox {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 25px;
+    outline: none;
+    background-color: #f8f8f8;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Focus effect */
+.textbox:focus {
+    border-color: #007bff;
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+/* Placeholder text styling */
+.textbox::placeholder {
+    color: #bbb;
+    font-style: italic;
+}
+
+/* Add a subtle animation on focus */
+.textbox:focus::placeholder {
+    color: transparent;
+}
+
+main {
+    padding: 2rem;
+    max-width: 800px;
+    margin: auto;
+}
+
+form {
+    margin: 1rem 0;
+}
+
+form input, form select {
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+form button {
+    padding: 12px 20px;
+    background: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 200px;
+}
+
+form button:hover {
+    background: #555;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    background: #fff;
+    border: 1px solid #ddd;
+}
+
+/* Стили для контейнера дропдауна */
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Кнопка, которая отображает селектор */
+  .dropdown-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 200px;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* Контейнер для выпадающего списка */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 100%;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+  }
+  
+  /* Стили для select */
+  #citizen-node {
+    width: 100%;
+    padding: 12px 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    appearance: none;  /* Убираем стандартный стиль для браузеров */
+    -webkit-appearance: none; /* Для Safari */
+    -moz-appearance: none; /* Для Firefox */
+  }
+  
+  /* Стиль для кнопки с иконкой стрелки */
+  .dropdown-btn:after {
+    content: '▼';  /* Добавляем стрелку вниз */
+    margin-left: 10px;
+  }
+  
+  /* Показываем выпадающий список при наведении или клике */
+  .dropdown:hover .dropdown-content,
+  .dropdown:focus-within .dropdown-content {
+    display: block;
+  }
+  
+  .spin {
+    animation: spin 2s ease-in-out;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.shake {
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}

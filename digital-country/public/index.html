@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node Map</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+    <header>
+        <h1>Welcome to Node Map</h1>
+        <div class="textbox-container">
+            <label for="search" class="textbox-label">Search Citizens</label>
+            <input type="text" id="search" class="textbox" placeholder="Search by name, email, or node ID" />
+        </div>
+    </header>
+    <main>
+        <section id="citizens">
+            <h2>Citizens</h2>
+            <ul id="citizen-list"></ul>
+            <form id="add-citizen-form">
+                <input type="text" id="citizen-name" placeholder="Name" required>
+                <input type="email" id="citizen-email" placeholder="Email" required>
+                <div class="dropdown">
+                    <button class="dropdown-btn">Select Node</button>
+                    <div class="dropdown-content">
+                      <select id="citizen-node" required>
+                        <option value="" disabled selected>Select Node</option>
+                      </select>
+                    </div>
+                  </div>
+                <button type="submit">Add Citizen</button>
+            </form>
+        </section>
+        <section id="polls">
+            <h2>Polls</h2>
+            <ul id="poll-list"></ul>
+            <form id="add-poll-form">
+                <input type="text" id="poll-title" placeholder="Poll Title" required>
+                <input type="text" id="poll-options" placeholder="Options (comma-separated)" required>
+                <button type="submit">Create Poll</button>
+            </form>
+        </section>
+        <section id="citizen-info">
+            <h3>Citizen Information</h3>
+            <div id="citizen-card">
+            </div>
+        </section>
+        <h2>Add a New Node</h2>
+            <form id="add-node-form">
+                <label>
+                <input type="text" id="node-name" placeholder="Node Name:" required>
+                </label>
+                <label>
+                <input type="number" step="0.0001" id="node-lat" placeholder="Latitude:" required>
+                </label>
+                <label>
+                <input type="number" step="0.0001" id="node-lng" placeholder="Longitude:" required>
+                </label>
+                <button type="submit">Add Node</button>
+            </form>
+        <div id="map" style="height: 500px; margin-top: 20px;"></div>
+        <button style="background-image: url('images/AceSpades.png'); background-size: cover; width: 20px; height: 20px;" id="openPopup">О</button>
+				<button style="background-size: cover; width: 100px; height: 20px;"id="fleeingButton">fleeingButton</button>
+    </main>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        document.getElementById('openPopup').addEventListener('click', () => {
+          const popupWidth = 800; // Ширина окна
+          const popupHeight = 600; // Высота окна
+          const left = (window.screen.width / 2) - (popupWidth / 2); // Позиция слева
+          const top = (window.screen.height / 2) - (popupHeight / 2); // Позиция сверху
+    
+          window.open(
+            '/partial-view', // URL всплывающего окна
+            'PopupWindow', // Имя окна
+            `width=${popupWidth},height=${popupHeight},top=${top},left=${left},resizable=yes,scrollbars=yes,status=no,fullscreen=no`
+          );
+        });
+      </script>
+    <script src="script.js"></script>
+</body>
+</html>
